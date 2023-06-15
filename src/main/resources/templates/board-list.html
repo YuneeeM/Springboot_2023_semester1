@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 목록</title>
+</head>
+<body>
+<h2>게시물 목록</h2>
+<table>
+  <thead>
+  <tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>조회수</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="board : ${boards}">
+    <td th:text="${board.uid}"></td>
+    <td>
+      <a th:href="@{/boards/{id}(id=${board.uid})}" th:text="${board.title}"></a>
+    </td>
+    <td th:text="${board.writer}"></td>
+    <td th:text="${board.viewCnt}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
